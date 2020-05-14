@@ -10,11 +10,11 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class UserLoginController {
+public class UserRegisterController {
 
-    public void gotoCustomerLogin(ActionEvent event) throws IOException {
+    public void gotoCustomerRegister(ActionEvent event) throws IOException {
 
-        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/CustomerLogin.fxml"));
+        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/CustomerRegister.fxml"));
         Scene view2 = new Scene(view);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -23,9 +23,9 @@ public class UserLoginController {
         window.show();
     }
 
-    public void gotoAdminLogin(ActionEvent event) throws IOException {
+    public void gotoAdminRegister(ActionEvent event) throws IOException {
 
-        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/AdminLogin.fxml"));
+        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/AdminRegister.fxml"));
         Scene view2 = new Scene(view);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -34,9 +34,9 @@ public class UserLoginController {
         window.show();
     }
 
-    public void gotoRegister(ActionEvent event) throws IOException {
+    public void gotoUserLogin(ActionEvent event) throws IOException {
 
-        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserRegisterMainView.fxml"));
+        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserLoginMainView.fxml"));
         Scene view2 = new Scene(view);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
