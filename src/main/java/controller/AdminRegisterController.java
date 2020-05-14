@@ -1,19 +1,19 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class AdminLoginController {
+public class AdminRegisterController {
 
-    public void gotoUserLogin(ActionEvent event) throws IOException {
+    public void gotoUserRegister(ActionEvent event) throws IOException {
 
-        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserLoginMainView.fxml"));
+        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserRegisterMainView.fxml"));
         Scene view2 = new Scene(view);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
