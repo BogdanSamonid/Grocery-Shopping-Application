@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Grocery Shopping Application" />
+        <module name="Grocery-Shopping-Application" />
         <module name="GroceryShoppingApplication" />
+        <module name="Grocery Shopping Application" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
