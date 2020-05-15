@@ -5,8 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-
-
 public class GroceryShopsMain extends Application {
 
     private Stage primaryStage;
@@ -19,14 +17,13 @@ public class GroceryShopsMain extends Application {
         showShopsListView(); // method to add .fxml file here
     }
 
-    private void showShopsListView () throws IOException{
+    private void showShopsListView() throws IOException{
 
-        Parent root = FXMLLoader.load(GroceryShopsMain.class.getResource("/view/ShopsListView.fxml"));
+        Parent root = FXMLLoader.load(GroceryShopsMain.class.getResource("view/ShopsListView.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
 
     public static void main(String[] args){
         launch(args);
