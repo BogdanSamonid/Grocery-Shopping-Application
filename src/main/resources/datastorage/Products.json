@@ -1,0 +1,12 @@
+{
+  "Lidl": [
+    {"name": "milk", "type": "dairy", "price": "3.5", "available": true},
+    {"name": "apple", "type": "fruits", "price": "1", "available": true},
+    {"name": "grepfuit", "type": "fruits", "price": "1", "available": true},
+    {"name": "cheese", "type": "dairy", "price": "3.5", "available": false}
+  ],
+
+  "Carrefour": [
+
+  ]
+}
