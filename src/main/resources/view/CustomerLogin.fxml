@@ -60,8 +60,8 @@
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="usernameField" alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
+                        <TextField fx:id="passwordField" alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#gotoShopsList" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Login">
