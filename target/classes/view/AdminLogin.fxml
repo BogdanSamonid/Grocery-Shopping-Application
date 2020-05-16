@@ -56,9 +56,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TextField alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" promptText="employee ID" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="usernameField" alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
+                        <TextField fx:id="employeeIDField" alignment="CENTER" promptText="employee ID" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="passwordField" alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="Username :">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
