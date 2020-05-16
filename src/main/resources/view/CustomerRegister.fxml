@@ -28,6 +28,11 @@
                         </Text>
                         <ButtonBar prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;">
                             <buttons>
+                        <Button layoutX="435.0" layoutY="11.0" mnemonicParsing="false" onAction="#gotoCustomerLogin" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Login" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                        </Button>
                                 <Button mnemonicParsing="false" onAction="#gotoUserRegister" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Return" textAlignment="CENTER">
                                     <font>
                                         <Font name="Arial Rounded MT Bold" size="12.0" />
@@ -55,8 +60,8 @@
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="usernameField" alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
+                        <TextField fx:id="passwordField" alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <ImageView fitHeight="177.0" fitWidth="500.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
@@ -64,11 +69,12 @@
                         <Image url="@groceries.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#gotoCustomerLogin" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: #ffefd5;" text="Register">
+                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: #ffefd5;" text="Register">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font>
                   </Button>
+                  <Text fx:id="messageField" layoutX="239.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                     </children>
                 </Pane>
             </children>
