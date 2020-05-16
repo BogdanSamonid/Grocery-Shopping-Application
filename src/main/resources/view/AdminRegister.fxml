@@ -76,7 +76,7 @@
                         <Image url="@groceries.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Register">
+                  <Button fx:id="registerButtonAction" layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Register">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
