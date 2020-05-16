@@ -24,14 +24,17 @@
                   <Glow />
                </effect>
             </Text>
-            <ImageView fitHeight="132.0" fitWidth="515.0" layoutX="54.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="177.0" fitWidth="500.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/view/groceries.png" />
                </image>
             </ImageView>
-            <ButtonBar layoutX="-1.0" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: plum;">
+            <ButtonBar layoutX="-1.0" prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;">
               <buttons>
-                <Button minWidth="0.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-radius: 15;" text="Log In" onAction="#gotoUserLogin" />
+                <Button mnemonicParsing="false" onAction="#gotoUserLogin" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Log In">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font></Button>
               </buttons>
             </ButtonBar>
          </children>

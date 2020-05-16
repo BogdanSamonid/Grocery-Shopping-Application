@@ -3,12 +3,10 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import java.util.List;
 
 public class Shop {
 
-    private List<Product> shopProducts;
-    private StringProperty shopName = new SimpleStringProperty("Lidl");;
+    private StringProperty shopName = new SimpleStringProperty("");;
 
     public String getShopName() {
         return shopName.get();

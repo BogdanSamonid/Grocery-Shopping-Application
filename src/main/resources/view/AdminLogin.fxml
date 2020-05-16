@@ -28,7 +28,7 @@
                         </Text>
                   <ButtonBar prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;">
                     <buttons>
-                      <Button mnemonicParsing="false" onAction="#gotoUserLogin" style="-fx-background-radius: 15;" text="Return">
+                      <Button mnemonicParsing="false" onAction="#gotoUserLogin" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Return">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
@@ -40,7 +40,7 @@
                         <Image url="@groceries.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="250.0" layoutY="308.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15;" text="Login" onAction="#gotoShopsList">
+                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#gotoShopsList" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Login">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font>
@@ -59,17 +59,17 @@
                         <TextField alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
                         <TextField alignment="CENTER" promptText="employee ID" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Username :">
+                        <Label text="Username :" textFill="PAPAYAWHIP">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label text="Employee ID :" GridPane.rowIndex="1">
+                        <Label text="Employee ID :" textFill="PAPAYAWHIP" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label text="Password :" GridPane.rowIndex="2">
+                        <Label text="Password :" textFill="PAPAYAWHIP" GridPane.rowIndex="2">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
