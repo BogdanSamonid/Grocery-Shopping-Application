@@ -4,7 +4,7 @@ public class WrongPasswordException extends Exception {
 
     public WrongPasswordException() {
 
-        super(String.format("Password not correct. Try again!"));
+        super(String.format("The password is not correct. Try again!"));
 
     }
 }

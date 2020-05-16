@@ -4,7 +4,7 @@ public class WrongUsernameException extends Exception {
 
     public WrongUsernameException() {
 
-        super(String.format("This username does not exist. Try again!"));
+        super(String.format("This username is not registered. Try again!"));
 
     }
 }

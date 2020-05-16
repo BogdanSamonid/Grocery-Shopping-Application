@@ -1,15 +1,24 @@
 package controller;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
 public class AdminLoginController {
+
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private TextField employeeIDField;
+    @FXML
+    private TextField passwordField;
 
     public void gotoUserLogin(ActionEvent event) throws IOException {
 
@@ -22,4 +31,9 @@ public class AdminLoginController {
         window.show();
 
     }
+
+
+    /*public void printFields() throws IOException {
+        System.out.println(usernameField.getText() + " " + employeeIDField.getText() + " " + passwordField.getText());
+    }*/
 }
