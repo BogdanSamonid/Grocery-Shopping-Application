@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -46,6 +47,7 @@ public class ShopListController implements Initializable {
                 b.setText(element);
                 b.setAlignment(Pos.CENTER);
                 b.setStyle("-fx-background-color: plum; -fx-background-radius: 15px; -fx-text-fill: black");
+                b.setFont(Font.font("Arial Rounded MT Bold"));
                 shopList.getChildren().add(b);
             }
 
@@ -57,6 +59,18 @@ public class ShopListController implements Initializable {
             Button b = (Button) i;
             b.setOnAction(new ChooseShopEventHandler());
         }
+
+    }
+
+    public void gotoUserLogin(ActionEvent event) throws IOException {
+
+            Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserLoginMainView.fxml"));
+            Scene view2 = new Scene(view);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+            window.setScene(view2);
+            window.show();
 
     }
 }

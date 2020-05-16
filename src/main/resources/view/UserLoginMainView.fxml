@@ -39,7 +39,7 @@
                   </Text>
                   <ButtonBar prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;">
                     <buttons>
-                      <Button mnemonicParsing="false" style="-fx-background-radius: 15;" text="Return">
+                      <Button mnemonicParsing="false" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Return">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
