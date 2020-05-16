@@ -23,15 +23,4 @@ public class CustomerLoginController {
         window.show();
 
     }
-    public void gotoShopsList(ActionEvent event) throws IOException {
-
-        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/ShopsListView.fxml"));
-        Scene view2 = new Scene(view);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(view2);
-        window.show();
-
-    }
 }

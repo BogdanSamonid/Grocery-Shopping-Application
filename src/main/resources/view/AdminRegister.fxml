@@ -21,23 +21,18 @@
             <children>
                 <Pane prefHeight="550.0" prefWidth="500.0" style="-fx-background-color: linear-gradient(purple,mediumvioletred);">
                     <children>
-                        <Text fill="PAPAYAWHIP" layoutX="138.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Register">
+                        <Text fill="PAPAYAWHIP" layoutX="134.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Register">
                             <font>
                                 <Font name="Arial Rounded MT Bold" size="30.0" />
                             </font>
                         </Text>
                         <ButtonBar prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;">
                             <buttons>
-                                <Button mnemonicParsing="false" onAction="#gotoAdminLogin" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Login">
+                                <Button mnemonicParsing="false" onAction="#gotoUserRegister" style="-fx-background-radius: 15;" text="Return">
                                     <font>
                                         <Font name="Arial Rounded MT Bold" size="12.0" />
                                     </font>
                                 </Button>
-                        <Button layoutX="435.0" layoutY="11.0" mnemonicParsing="false" onAction="#gotoUserRegister" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Return">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="12.0" />
-                           </font>
-                        </Button>
                             </buttons>
                         </ButtonBar>
                   <GridPane layoutX="10.0" layoutY="155.0" prefHeight="120.0" prefWidth="480.0">
@@ -51,20 +46,20 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Username :" textFill="PAPAYAWHIP">
+                        <Label text="Username :">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label text="Employee ID :" textFill="PAPAYAWHIP" GridPane.rowIndex="1">
+                        <Label text="Employee ID :" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="usernameField" alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
-                        <TextField fx:id="employeeIDField" alignment="CENTER" promptText="employee ID" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="passwordField" alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Password :" textFill="PAPAYAWHIP" GridPane.rowIndex="2">
+                        <TextField alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" promptText="employee ID" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Password :" GridPane.rowIndex="2">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
@@ -76,11 +71,10 @@
                         <Image url="@groceries.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="registerButtonAction" layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Register">
+                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15;" text="Register">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Text fx:id="messageField" layoutX="244.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="5.0" />
                     </children>
                 </Pane>
             </children>
