@@ -59,17 +59,17 @@
                      <children>
                         <TextField fx:id="usernameField" alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
                         <TextField fx:id="employeeIDField" alignment="CENTER" promptText="employee ID" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Username :">
+                        <Label text="Username :" textFill="PAPAYAWHIP">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label text="Employee ID :" GridPane.rowIndex="1">
+                        <Label text="Employee ID :" textFill="PAPAYAWHIP" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label text="Password :" GridPane.rowIndex="2">
+                        <Label text="Password :" textFill="PAPAYAWHIP" GridPane.rowIndex="2">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>

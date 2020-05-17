@@ -8,11 +8,11 @@ import model.Admin;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class AdminService {
 
@@ -45,8 +45,8 @@ public class AdminService {
         admins.add(newAdmin);
         try {
             ObjectMapper mapper = new ObjectMapper();
-            final String json=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(newAdmin);
-            Files.write(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json").toPath(), Arrays.asList(json), StandardOpenOption.APPEND);
+            File file=new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json");
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, admins);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {

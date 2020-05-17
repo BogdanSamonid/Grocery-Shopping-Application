@@ -8,12 +8,9 @@ import model.Customer;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,8 +44,8 @@ public class CustomerService {
         customers.add(newCustomer);
         try {
             ObjectMapper mapper = new ObjectMapper();
-            final String json=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(newCustomer);
-            Files.write(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/customer.json").toPath(), Arrays.asList(json), StandardOpenOption.APPEND);
+            File file=new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/customer.json");
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, customers);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {
