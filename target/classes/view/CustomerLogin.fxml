@@ -33,7 +33,7 @@
                   </Text>
                   <ButtonBar prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;">
                     <buttons>
-                      <Button mnemonicParsing="false" onAction="#gotoUserLogin" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Return">
+                      <Button mnemonicParsing="false" onAction="#gotoUserLogin" style="-fx-background-radius: 15;" text="Return">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
@@ -50,21 +50,21 @@
                       <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Username :" textFill="PAPAYAWHIP">
+                        <Label text="Username :">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label text="Password :" textFill="PAPAYAWHIP" GridPane.rowIndex="1">
+                        <Label text="Password :" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="usernameField" alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
+                        <TextField fx:id="passwordField" alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#gotoShopsList" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Login">
+                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15;" text="Login">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font>

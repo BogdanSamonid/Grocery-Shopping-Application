@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -33,7 +34,7 @@
                   </Text>
                   <ButtonBar prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;">
                     <buttons>
-                      <Button mnemonicParsing="false" onAction="#gotoUserLogin" prefHeight="16.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Return">
+                      <Button mnemonicParsing="false" onAction="#gotoUserLogin" style="-fx-background-radius: 15; -fx-background-color: #ffefd5;" text="Return" textAlignment="CENTER">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
@@ -42,8 +43,8 @@
                   </ButtonBar>
                   <GridPane layoutX="10.0" layoutY="155.0" prefHeight="80.0" prefWidth="480.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="10.0" prefWidth="153.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="327.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
@@ -60,11 +61,11 @@
                               <Font name="Arial Rounded MT Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="usernameField" alignment="CENTER" promptText="username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
+                        <PasswordField fx:id="passwordField" alignment="CENTER" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#gotoShopsList" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: papayawhip;" text="Login">
+                  <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 15; -fx-background-color: #ffefd5;" text="Login" textAlignment="CENTER">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font>
