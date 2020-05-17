@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -62,22 +64,13 @@ public class AdminRegisterController {
 
             AdminService.addAdmin(usernameField.getText(), employeeIDField.getText(), passwordField.getText());
             messageField.setText("Account created successfully!");
-        } catch (UsernameAlreadyExistsException e) {
+        } catch (UsernameAlreadyExistsException | EmptyPasswordException | EmptyUsernameException | EmptyIDException e) {
 
             messageField.setText(e.getMessage());
-        } catch (EmptyPasswordException passwordEmpty) {
-
-            messageField.setText(passwordEmpty.getMessage());
-            passwordEmpty.printStackTrace();
-        } catch (EmptyIDException IDEmpty) {
-
-            messageField.setText(IDEmpty.getMessage());
-            IDEmpty.printStackTrace();
-        } catch (EmptyUsernameException usernameEmpty) {
-
-            messageField.setText(usernameEmpty.getMessage());
-            usernameEmpty.printStackTrace();
+            Alert alert=new Alert(Alert.AlertType.WARNING, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+            if(alert.getResult()==ButtonType.OK)
+                alert.close();
         }
-
     }
 }
