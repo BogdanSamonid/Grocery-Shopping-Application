@@ -3,8 +3,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.*;
-import java.util.Iterator;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class JsonParser {
 
