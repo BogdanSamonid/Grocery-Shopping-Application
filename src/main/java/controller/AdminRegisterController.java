@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -24,10 +25,11 @@ public class AdminRegisterController {
     @FXML
     public TextField employeeIDField;
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
     @FXML
     private Text messageField;
 
+    @FXML
     public void gotoAdminLogin(ActionEvent event) throws IOException {
 
         Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/AdminLogin.fxml"));
@@ -40,6 +42,7 @@ public class AdminRegisterController {
 
     }
 
+    @FXML
     public void gotoUserRegister(ActionEvent event) throws IOException {
 
         Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserRegisterMainView.fxml"));
@@ -52,6 +55,7 @@ public class AdminRegisterController {
 
     }
 
+    @FXML
     public void registerButtonAction() {
 
         try {
@@ -63,13 +67,16 @@ public class AdminRegisterController {
             messageField.setText(e.getMessage());
         } catch (EmptyPasswordException passwordEmpty) {
 
+            messageField.setText(passwordEmpty.getMessage());
             passwordEmpty.printStackTrace();
         } catch (EmptyIDException IDEmpty) {
 
+            messageField.setText(IDEmpty.getMessage());
             IDEmpty.printStackTrace();
-        } catch (EmptyUsernameException userEmpty) {
+        } catch (EmptyUsernameException usernameEmpty) {
 
-            userEmpty.printStackTrace();
+            messageField.setText(usernameEmpty.getMessage());
+            usernameEmpty.printStackTrace();
         }
 
     }

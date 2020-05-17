@@ -1,12 +1,11 @@
 package model;
 
-import javafx.scene.control.TextField;
-
 public class Customer{
 
     private String username;
     private String password;
 
+    public Customer() {}
     public Customer(String username, String password) {
         this.username=username;
         this.password=password;
@@ -14,12 +13,12 @@ public class Customer{
 
     public String getUsername() { return this.username; }
 
-    public void setUsername(TextField username) { this.username = username.getText(); }
+    public void setUsername(String username) { this.username = username; }
 
     public String getPassword() { return this.password; }
 
-    public void setPassword(TextField password) {
-        this.password = password.getText();
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean equals(Object o) {

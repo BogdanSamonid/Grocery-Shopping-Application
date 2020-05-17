@@ -26,6 +26,7 @@ public class CustomerRegisterController {
     @FXML
     private Text messageField;
 
+    @FXML
     public void gotoCustomerLogin(ActionEvent event) throws IOException {
 
         Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/CustomerLogin.fxml"));
@@ -38,6 +39,7 @@ public class CustomerRegisterController {
 
     }
 
+    @FXML
     public void gotoUserRegister(ActionEvent event) throws IOException {
 
         Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserRegisterMainView.fxml"));

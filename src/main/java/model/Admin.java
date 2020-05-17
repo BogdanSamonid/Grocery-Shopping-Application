@@ -1,12 +1,12 @@
 package model;
 
-import javafx.scene.control.TextField;
-
 public class Admin {
 
     private String username;
     private String ID;
     private String password;
+
+    public Admin() {}
 
     public Admin(String username, String ID, String password) {
         this.username=username;
@@ -18,24 +18,24 @@ public class Admin {
         return this.username;
     }
 
-    public void setUsername(TextField username) {
-        this.username = username.getText();
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getID() {
         return this.ID;
     }
 
-    public void setID(TextField ID) {
-        this.ID = ID.getText();
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getPassword() {
         return this.password;
     }
 
-    public void setPassword(TextField password) {
-        this.password = password.getText();
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

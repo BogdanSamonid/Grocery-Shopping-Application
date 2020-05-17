@@ -1,52 +1,69 @@
 package service;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.*;
 import model.Admin;
-import org.apache.commons.io.FileUtils;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class AdminService {
 
-    private static List<Admin> admins;
-    public static final Path ADMIN_PATH=FileSystem.getPathToFile("config", "admins.json");
+    private static List<Admin> admins = new ArrayList<Admin>();
 
-
-    public static void loadAdminsFromFile() throws IOException {
-        if (!Files.exists(ADMIN_PATH)) {
-            FileUtils.copyURLToFile(AdminService.class.getClassLoader().getResource("admins.json"), ADMIN_PATH.toFile());
+    public static void loadAdminsFromFile() { /*LOAD THE LIST WITH JSON(ADMIN) OBJECTS*/
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            InputStream inputStream = new FileInputStream(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json"));
+            TypeReference<List<Admin>> typeReference = new TypeReference<List<Admin>>() {
+            };
+            admins = mapper.readValue(inputStream, typeReference);
+            inputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        admins = objectMapper.readValue(ADMIN_PATH.toFile(),
-                new TypeReference<List<Admin>> () {
-                });
     }
 
     public static void addAdmin(String username, String ID, String password) throws UsernameAlreadyExistsException, EmptyPasswordException, EmptyUsernameException, EmptyIDException {
+        loadAdminsFromFile();
         checkAdminDoesNotExist(username);
         checkUsernameIsNotEmpty(username);
         checkIDIsNotEmpty(ID);
         checkPasswordIsNotEmpty(password);
-        admins.add(new Admin(username, ID, encodePassword(username, password)));
-        persistAdmins();
+        Admin newAdmin = new Admin(username, ID, encodePassword(username, password));
+        admins.add(newAdmin);
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            final String json=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(newAdmin);
+            Files.write(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json").toPath(), Arrays.asList(json), StandardOpenOption.APPEND);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+
+
     public static void checkAdmin(String username, String ID, String password) throws EmptyPasswordException, EmptyUsernameException, EmptyIDException, WrongPasswordException, WrongIDException, WrongUsernameException {
-        checkUsernameIsNotEmpty(username);
-        checkIDIsNotEmpty(ID);
-        checkPasswordIsNotEmpty(password);
-        checkAccount(username, ID, password);
+            loadAdminsFromFile();
+            checkUsernameIsNotEmpty(username);
+            checkIDIsNotEmpty(ID);
+            checkPasswordIsNotEmpty(password);
+            checkAccount(username, ID, password);
     }
 
     private static void checkAccount(String username, String ID, String password) throws WrongPasswordException, WrongIDException, WrongUsernameException {
@@ -71,7 +88,7 @@ public class AdminService {
             throw new WrongPasswordException();
     }
 
-    private static void checkAdminDoesNotExist(String username) throws UsernameAlreadyExistsException{
+    private static void checkAdminDoesNotExist(String username) throws UsernameAlreadyExistsException, NullPointerException{
 
         for (Admin admin : admins) {
             if (Objects.equals(username, admin.getUsername()))
@@ -97,16 +114,6 @@ public class AdminService {
             throw new EmptyPasswordException(password);
     }
 
-    private static void persistAdmins() {
-
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(ADMIN_PATH.toFile(), admins);
-
-        } catch (IOException e) {
-            throw new CouldNotWriteAdminsException();
-        }
-    }
 
     private static String encodePassword(String salt, String password) {
 
