@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -27,12 +29,23 @@
             <Glow />
          </effect>
       </Text>
-      <TableView fx:id="table" layoutX="104.0" layoutY="129.0" prefHeight="396.0" prefWidth="287.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="109.0">
+      <TableView fx:id="table" layoutX="66.0" layoutY="106.0" prefHeight="338.0" prefWidth="363.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="71.0">
          <columns>
-            <TableColumn fx:id="prName" minWidth="-1.0" prefWidth="110.0" style="-fx-background-color: plum;" text="Products" />
-            <TableColumn fx:id="prPrice" minWidth="-1.0" prefWidth="75.0" style="-fx-background-color: plum;" text="Price" />
-            <TableColumn minWidth="-1.0" prefWidth="100.0" style="-fx-background-color: plum;" text="Product Type" />
+            <TableColumn fx:id="prName" minWidth="-1.0" prefWidth="110.0" style="-fx-background-color: plum; -fx-alignment: CENTER;" text="Products" />
+            <TableColumn fx:id="prPrice" minWidth="-1.0" prefWidth="79.20001220703125" style="-fx-background-color: plum; -fx-alignment: CENTER;" text="Price" />
+            <TableColumn fx:id="prCategory" minWidth="-1.0" prefWidth="96.0" style="-fx-background-color: plum; -fx-alignment: CENTER;" text="Category" />
+            <TableColumn fx:id="prSelect" prefWidth="74.4000244140625" style="-fx-background-color: plum; -fx-alignment: CENTER;" text="Select" />
          </columns>
       </TableView>
+      <ImageView fitHeight="90.0" fitWidth="112.0" layoutX="139.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/view/shoppingCart.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="250.0" layoutY="478.0" mnemonicParsing="false" onAction="#gotoCheckout" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: papayawhip; -fx-background-radius: 15;" text="Checkout" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

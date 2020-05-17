@@ -2,30 +2,10 @@ package model;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class Product {
+public class ShoppingCart {
 
     private SimpleStringProperty name;
     private SimpleStringProperty price;
-    private SimpleStringProperty type;
-
-
-    public Product(String name, String price, String type){
-        this.name = new SimpleStringProperty(name);
-        this.price = new SimpleStringProperty(price);
-        this.type = new SimpleStringProperty(type);
-    }
-
-    public String getType() {
-        return type.get();
-    }
-
-    public SimpleStringProperty typeProperty() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type.set(type);
-    }
 
     public String getName() {
         return name.get();
