@@ -1,47 +1,66 @@
 package service;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.*;
 import model.Customer;
-import org.apache.commons.io.FileUtils;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class CustomerService {
 
-    private static List<Customer> customers;
-    public static final Path CUSTOMER_PATH=FileSystem.getPathToFile("config", "customers.json");
+    private static List<Customer> customers=new ArrayList<Customer>();
 
-
-    public static void loadCustomersFromFile() throws IOException {
-        if (!Files.exists(CUSTOMER_PATH)) {
-            FileUtils.copyURLToFile(CustomerService.class.getClassLoader().getResource("customers.json"), CUSTOMER_PATH.toFile());
+    public static void loadCustomersFromFile() { /*LOAD THE LIST WITH JSON(ADMIN) OBJECTS*/
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            InputStream inputStream = new FileInputStream(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/customer.json"));
+            TypeReference<List<Customer>> typeReference = new TypeReference<List<Customer>>() {
+            };
+            customers = mapper.readValue(inputStream, typeReference);
+            inputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        customers = objectMapper.readValue(CUSTOMER_PATH.toFile(),
-                new TypeReference<List<Customer>> () {
-        });
     }
 
-    public static void addCustomer(String username, String password) throws UsernameAlreadyExistsException, EmptyPasswordException, EmptyUsernameException {
+    public static void addCustomer(String username, String password) throws UsernameAlreadyExistsException, EmptyPasswordException, EmptyUsernameException{
+        loadCustomersFromFile();
         checkCustomerDoesNotExist(username);
         checkUsernameIsNotEmpty(username);
         checkPasswordIsNotEmpty(password);
-        customers.add(new Customer(username, encodePassword(username, password)));
-        persistCustomers();
+        Customer newCustomer = new Customer(username, encodePassword(username, password));
+        customers.add(newCustomer);
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            final String json=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(newCustomer);
+            Files.write(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/customer.json").toPath(), Arrays.asList(json), StandardOpenOption.APPEND);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+
     public static void checkCustomer(String username, String password) throws EmptyPasswordException, EmptyUsernameException, WrongPasswordException, WrongUsernameException {
+        loadCustomersFromFile();
         checkUsernameIsNotEmpty(username);
         checkPasswordIsNotEmpty(password);
         checkAccount(username, password);
@@ -84,15 +103,8 @@ public class CustomerService {
             throw new EmptyPasswordException(password);
     }
 
-    private static void persistCustomers() {
+    private static void persistCustomers() { /*WRITE THE LIST BACK IN THE JSON FILE*/
 
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(CUSTOMER_PATH.toFile(), customers);
-
-        } catch (IOException e) {
-            throw new CouldNotWriteCustomersException();
-        }
     }
 
     private static String encodePassword(String salt, String password) {

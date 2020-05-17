@@ -1,17 +1,18 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
 public class UserLoginController {
 
+    @FXML
     public void gotoCustomerLogin(ActionEvent event) throws IOException {
 
         Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/CustomerLogin.fxml"));
@@ -23,6 +24,7 @@ public class UserLoginController {
         window.show();
     }
 
+    @FXML
     public void gotoAdminLogin(ActionEvent event) throws IOException {
 
         Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/AdminLogin.fxml"));
@@ -34,6 +36,7 @@ public class UserLoginController {
         window.show();
     }
 
+    @FXML
     public void gotoRegister(ActionEvent event) throws IOException {
 
         Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserRegisterMainView.fxml"));
@@ -45,6 +48,7 @@ public class UserLoginController {
         window.show();
     }
 
+    @FXML
     public void gotoShopsList(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/ShopsListView.fxml"));
         Parent view = loader.load();

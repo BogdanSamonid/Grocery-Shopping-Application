@@ -2,12 +2,12 @@ package exceptions;
 
 public class EmptyIDException extends Exception{
 
-    private String ID;
+    String ID;
 
     public EmptyIDException(String ID){
 
-        super(String.format("The ID field is mandatory!", ID));
-
+        super("The ID field is mandatory!");
+        this.ID=ID;
     }
 }
 

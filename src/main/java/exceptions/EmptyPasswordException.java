@@ -2,12 +2,12 @@ package exceptions;
 
 public class EmptyPasswordException extends Exception{
 
-    private String password;
+    String password;
 
     public EmptyPasswordException(String password){
 
-        super(String.format("The password field is mandatory!", password));
-
+        super("The password field is mandatory!");
+        this.password=password;
     }
 }
 
