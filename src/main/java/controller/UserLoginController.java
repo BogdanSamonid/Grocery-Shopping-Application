@@ -50,7 +50,7 @@ public class UserLoginController {
 
     @FXML
     public void gotoShopsList(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/ShopsListView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/MainShopView.fxml"));
         Parent view = loader.load();
         Scene view2 = new Scene(view);
 

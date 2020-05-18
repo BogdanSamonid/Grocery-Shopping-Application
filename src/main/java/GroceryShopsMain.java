@@ -19,7 +19,7 @@ public class GroceryShopsMain extends Application {
 
     private void showShopsListView() throws IOException{
 
-        Parent root = FXMLLoader.load(GroceryShopsMain.class.getResource("view/ShopsListView.fxml"));
+        Parent root = FXMLLoader.load(GroceryShopsMain.class.getResource("view/MainShopView.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();

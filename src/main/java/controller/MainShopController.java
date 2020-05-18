@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
-public class ShopListController implements Initializable {
+public class MainShopController implements Initializable {
 
     @FXML
     public VBox shopList;
@@ -53,9 +53,19 @@ public class ShopListController implements Initializable {
 
         for(Node i: shopList.getChildren()) {
             Button b = (Button) i;
-            b.setOnAction(new ChooseShopEventHandler());
+            b.setOnAction(new MainChooseShopEventHandler());
         }
 
     }
+    @FXML
+    public void gotoUserLogin(ActionEvent event) throws IOException {
 
+        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/UserLoginMainView.fxml"));
+        Scene view2 = new Scene(view);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(view2);
+        window.show();
+    }
 }
