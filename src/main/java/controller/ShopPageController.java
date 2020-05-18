@@ -66,7 +66,7 @@ public class ShopPageController{
 
         window.setScene(view2);
         CheckoutController controller = loader.getController();
-        controller.init(shoppingList);
+        controller.init(this.shoppingList, this.currentShop);
         window.show();
     }
 

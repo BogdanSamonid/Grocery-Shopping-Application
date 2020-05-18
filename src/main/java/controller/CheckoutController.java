@@ -13,13 +13,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.Product;
-import model.Shop;
+import model.Order;
 import model.ShoppingCart;
-import org.msgpack.value.IntegerValue;
+import service.OrderService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutController<prList> {
@@ -43,7 +41,7 @@ public class CheckoutController<prList> {
         window.show();
     }
 
-    public void init(List<ShoppingCart> cart){
+    public void init(List<ShoppingCart> cart, Text currentShop){
 
         ObservableList<ShoppingCart> data = FXCollections.observableArrayList(cart);
         table.setEditable(true);
@@ -63,6 +61,8 @@ public class CheckoutController<prList> {
          }
         });
 
+        Order order=new Order(currentShop, cart);
+        OrderService.addOrder(order);
     }
 
     public void totalPrice(TableView<ShoppingCart> table, TextField total ){
