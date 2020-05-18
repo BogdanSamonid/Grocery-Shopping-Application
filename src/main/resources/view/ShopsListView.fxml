@@ -30,13 +30,6 @@
                </image>
             </ImageView>
             <ButtonBar prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;">
-              <buttons>
-                <Button mnemonicParsing="false" onAction="#gotoUserLogin" prefHeight="16.0" style="-fx-background-color: papayawhip; -fx-background-radius: 15;" text="Log In">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="12.0" />
-                     </font>
-                  </Button>
-              </buttons>
             </ButtonBar>
          </children>
       </Pane>
