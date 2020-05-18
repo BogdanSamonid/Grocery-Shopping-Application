@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.Product;
 import model.Shop;
+import model.ShoppingCart;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -41,6 +42,8 @@ public class ShopPageController{
     public TableColumn<Product, String> prCategory;
     public TableColumn prSelect;
 
+    List<ShoppingCart> shoppingList = new ArrayList<>();
+
     private JsonParser jsonParser;
 
     public void gotoShopsList(ActionEvent event) throws IOException {
@@ -62,20 +65,25 @@ public class ShopPageController{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(view2);
+        CheckoutController controller = loader.getController();
+        controller.init(shoppingList);
         window.show();
     }
 
 
 
     public void init(Shop shop){
+
         currentShop.setText(shop.getShopName());
+
         try {
             jsonParser = new JsonParser();
             JSONObject obj = jsonParser.parse("/datastorage/shop_products.json");
             JSONArray products = (JSONArray) obj.get(shop.getShopName());
             Iterator<JSONObject> it = products.iterator();
-            List<Product> prList = new ArrayList<Product>();
 
+
+            List<Product> prList = new ArrayList<Product>();
             while(it.hasNext()){
                 JSONObject getProduct = it.next();
                 prList.add(new Product(getProduct.get("name").toString(), (String) getProduct.get("price"), getProduct.get("type").toString()));
@@ -105,7 +113,11 @@ public class ShopPageController{
                                     } else {
                                         btn.setOnAction(event -> {
                                             Product selectedProduct= getTableView().getItems().get(getIndex());
-                                            System.out.println(selectedProduct.getName() + "   " + selectedProduct.getPrice());
+                                            ShoppingCart cart = new ShoppingCart("","");
+                                            cart.setName(selectedProduct.getName());
+                                            cart.setPrice(selectedProduct.getPrice());
+                                            shoppingList.add(cart);
+
                                         });
                                         setGraphic(btn);
                                         btn.setStyle("-fx-background-color: papayawhip; -fx-background-radius: 15;");
@@ -120,9 +132,6 @@ public class ShopPageController{
 
 
             prSelect.setCellFactory(cellFactory);
-
-
-
             table.setItems(data);
 
 

@@ -31,10 +31,10 @@
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font>
             </Button>
-            <TableView layoutX="157.0" layoutY="196.0" prefHeight="200.0" prefWidth="186.0" style="-fx-background-color: transparent;">
+            <TableView fx:id="table" layoutX="157.0" layoutY="196.0" prefHeight="200.0" prefWidth="186.0" style="-fx-background-color: transparent;">
               <columns>
-                <TableColumn prefWidth="110.0" style="-fx-background-color: plum;" text="Product" />
-                <TableColumn prefWidth="75.0" style="-fx-background-color: plum;" text="Price" />
+                <TableColumn fx:id="prName" prefWidth="110.0" style="-fx-background-color: plum;" text="Products" />
+                <TableColumn fx:id="prPrice" prefWidth="75.0" style="-fx-background-color: plum;" text="Price" />
               </columns>
             </TableView>
             <ImageView fitHeight="127.0" fitWidth="140.0" layoutX="187.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">

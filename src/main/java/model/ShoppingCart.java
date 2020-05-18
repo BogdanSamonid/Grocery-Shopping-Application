@@ -7,6 +7,11 @@ public class ShoppingCart {
     private SimpleStringProperty name;
     private SimpleStringProperty price;
 
+    public ShoppingCart(String name, String price){
+        this.name = new SimpleStringProperty(name);
+        this.price = new SimpleStringProperty(price);
+    }
+
     public String getName() {
         return name.get();
     }
