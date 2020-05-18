@@ -3,14 +3,13 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -29,6 +28,8 @@ public class CheckoutController<prList> {
     public TableColumn<ShoppingCart, String> prName;
     public TableColumn<ShoppingCart, String> prPrice;
     public TextField total;
+    public Button buy;
+    Alert confirmation = new Alert(Alert.AlertType.NONE);
 
 
     public void gotoShopsList(ActionEvent event) throws IOException {
@@ -50,6 +51,17 @@ public class CheckoutController<prList> {
         prPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         table.setItems(data);
         totalPrice(table,total);
+        buy.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent e)
+             {
+            // set alert type
+                 confirmation.setAlertType(Alert.AlertType.INFORMATION);
+                 confirmation.setTitle("Confirmation");
+                 confirmation.setHeaderText("Your order has been registered successfully!");
+            // show the dialog
+                 confirmation.show();
+         }
+        });
 
     }
 
@@ -62,6 +74,7 @@ public class CheckoutController<prList> {
         total.setText(String.valueOf(totalSavingValue) + " ron");
         total.setAlignment(Pos.CENTER);
         total.setDisable(true);
+
     }
 
 
