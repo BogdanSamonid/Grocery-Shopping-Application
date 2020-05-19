@@ -7,7 +7,10 @@ import exceptions.*;
 import model.Admin;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -16,12 +19,12 @@ import java.util.Objects;
 
 public class AdminService {
 
-    private static List<Admin> admins = new ArrayList<Admin>();
+    private List<Admin> admins = new ArrayList<Admin>();
 
-    public static void loadAdminsFromFile() { /*LOAD THE LIST WITH JSON(ADMIN) OBJECTS*/
+    public void loadAdminsFromFile() { /*LOAD THE LIST WITH JSON(ADMIN) OBJECTS*/
         try {
             ObjectMapper mapper = new ObjectMapper();
-            InputStream inputStream = new FileInputStream(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json"));
+            InputStream inputStream = new FileInputStream(new File("C:/Users/Oana Tomuta/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json"));
             TypeReference<List<Admin>> typeReference = new TypeReference<List<Admin>>() {
             };
             admins = mapper.readValue(inputStream, typeReference);
@@ -35,7 +38,7 @@ public class AdminService {
         }
     }
 
-    public static void addAdmin(String username, String ID, String password) throws UsernameAlreadyExistsException, EmptyPasswordException, EmptyUsernameException, EmptyIDException {
+    public void addAdmin(String username, String ID, String password) throws UsernameAlreadyExistsException, EmptyPasswordException, EmptyUsernameException, EmptyIDException {
         loadAdminsFromFile();
         checkAdminDoesNotExist(username);
         checkUsernameIsNotEmpty(username);
@@ -45,7 +48,7 @@ public class AdminService {
         admins.add(newAdmin);
         try {
             ObjectMapper mapper = new ObjectMapper();
-            File file=new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json");
+            File file=new File("C:/Users/Oana Tomuta/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json");
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, admins);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -58,7 +61,7 @@ public class AdminService {
 
 
 
-    public static void checkAdmin(String username, String ID, String password) throws EmptyPasswordException, EmptyUsernameException, EmptyIDException, WrongPasswordException, WrongIDException, WrongUsernameException {
+    public void checkAdmin(String username, String ID, String password) throws EmptyPasswordException, EmptyUsernameException, EmptyIDException, WrongPasswordException, WrongIDException, WrongUsernameException {
             loadAdminsFromFile();
             checkUsernameIsNotEmpty(username);
             checkIDIsNotEmpty(ID);
@@ -66,7 +69,7 @@ public class AdminService {
             checkAccount(username, ID, password);
     }
 
-    private static void checkAccount(String username, String ID, String password) throws WrongPasswordException, WrongIDException, WrongUsernameException {
+    private void checkAccount(String username, String ID, String password) throws WrongPasswordException, WrongIDException, WrongUsernameException {
         int ok = 0;
         for (Admin admin : admins) {
             if(Objects.equals(username, admin.getUsername()))
@@ -88,7 +91,7 @@ public class AdminService {
             throw new WrongPasswordException();
     }
 
-    private static void checkAdminDoesNotExist(String username) throws UsernameAlreadyExistsException, NullPointerException{
+    private void checkAdminDoesNotExist(String username) throws UsernameAlreadyExistsException, NullPointerException{
 
         for (Admin admin : admins) {
             if (Objects.equals(username, admin.getUsername()))
@@ -96,26 +99,26 @@ public class AdminService {
         }
     }
 
-    private static void checkUsernameIsNotEmpty(String username)throws EmptyUsernameException {
+    static void checkUsernameIsNotEmpty(String username)throws EmptyUsernameException {
 
         if(Objects.equals(username, ""))
             throw new EmptyUsernameException(username);
     }
 
-    private static void checkIDIsNotEmpty(String ID)throws EmptyIDException {
+    private void checkIDIsNotEmpty(String ID)throws EmptyIDException {
 
         if(Objects.equals(ID, ""))
             throw new EmptyIDException(ID);
     }
 
-    private static void checkPasswordIsNotEmpty(String password)throws EmptyPasswordException {
+    private void checkPasswordIsNotEmpty(String password)throws EmptyPasswordException {
 
         if(Objects.equals(password,""))
             throw new EmptyPasswordException(password);
     }
 
 
-    private static String encodePassword(String salt, String password) {
+    String encodePassword(String salt, String password) {
 
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
@@ -127,7 +130,7 @@ public class AdminService {
                 .replace("\"", ""); //to be able to save in JSON format
     }
 
-    private static MessageDigest getMessageDigest() {
+    private MessageDigest getMessageDigest() {
 
         MessageDigest md;
 

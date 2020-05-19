@@ -17,12 +17,19 @@ import java.io.IOException;
 
 public class AdminLoginController {
 
+    private AdminService adminService;
+
     @FXML
     public TextField passwordField;
     @FXML
     public TextField employeeIDField;
     @FXML
     public TextField usernameField;
+
+    public AdminLoginController(){
+        adminService = new AdminService();
+    }
+
     @FXML
     public void gotoUserLogin(ActionEvent event) throws IOException {
 
@@ -39,7 +46,7 @@ public class AdminLoginController {
     @FXML
     public void loginButtonAction(ActionEvent event) throws IOException, WrongIDException, WrongPasswordException, WrongUsernameException, EmptyIDException, EmptyPasswordException, EmptyUsernameException {
         try {
-            AdminService.checkAdmin(usernameField.getText(), employeeIDField.getText(), passwordField.getText());
+            adminService.checkAdmin(usernameField.getText(), employeeIDField.getText(), passwordField.getText());
             Alert alert=new Alert(Alert.AlertType.INFORMATION, "Logged in successfuly!", ButtonType.OK);
             alert.showAndWait();
             if(alert.getResult()==ButtonType.OK)

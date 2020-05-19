@@ -22,6 +22,8 @@ import java.io.IOException;
 
 public class AdminRegisterController {
 
+    private AdminService adminService;
+
     @FXML
     private TextField usernameField;
     @FXML
@@ -30,6 +32,10 @@ public class AdminRegisterController {
     private PasswordField passwordField;
     @FXML
     private Text messageField;
+
+    public AdminRegisterController() {
+        adminService = new AdminService();
+    }
 
     @FXML
     public void gotoAdminLogin(ActionEvent event) throws IOException {
@@ -62,7 +68,7 @@ public class AdminRegisterController {
 
         try {
 
-            AdminService.addAdmin(usernameField.getText(), employeeIDField.getText(), passwordField.getText());
+            adminService.addAdmin(usernameField.getText(), employeeIDField.getText(), passwordField.getText());
             messageField.setText("Account created successfully!");
         } catch (UsernameAlreadyExistsException | EmptyPasswordException | EmptyUsernameException | EmptyIDException e) {
 
