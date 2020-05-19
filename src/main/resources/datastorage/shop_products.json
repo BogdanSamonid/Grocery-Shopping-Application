@@ -1,13 +1,13 @@
 {
   "Lidl": [
-    {"name": "milk", "type": "dairy", "price": "3.5", "available": true},
-    {"name": "apple", "type": "fruits", "price": "1", "available": true},
-    {"name": "grepfrut", "type": "fruits", "price": "1", "available": true},
-    {"name": "cheese", "type": "dairy", "price": "3.5", "available": false}
+    {"name": "milk", "type": "dairy", "price": "3.5"},
+    {"name": "apple", "type": "fruits", "price": "1"},
+    {"name": "grepfrut", "type": "fruits", "price": "1"},
+    {"name": "cheese", "type": "dairy", "price": "3.5"}
   ],
 
   "Carrefour": [
-    {"name": "cottage cheese", "type": "dairy", "price": "3.5", "available": false},
-    {"name": "carrot", "type": "fruits", "price": "0.3", "available": true}
+    {"name": "cottage cheese", "type": "dairy", "price": "3.5"},
+    {"name": "carrot", "type": "fruits", "price": "0.3"}
   ]
 }
