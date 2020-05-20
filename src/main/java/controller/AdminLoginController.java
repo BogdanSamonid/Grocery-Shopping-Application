@@ -52,7 +52,7 @@ public class AdminLoginController {
             if(alert.getResult()==ButtonType.OK)
                 alert.close();
 
-            Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/ShopsListView.fxml"));
+            Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("view/MainAdminPageView.fxml"));
             Scene view2 = new Scene(view);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(view2);

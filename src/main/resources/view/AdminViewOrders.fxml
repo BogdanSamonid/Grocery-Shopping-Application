@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="500.0" style="-fx-background-color: linear-gradient(purple,mediumvioletred);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminViewOrdersController">
+    <children>
+        <ButtonBar layoutX="29.0" prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: plum;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <buttons>
+                <Button mnemonicParsing="false" onAction="#gotoMainAdminPage" prefHeight="16.0" style="-fx-background-color: papayawhip; -fx-background-radius: 15;" text="Return">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font></Button>
+            </buttons>
+        </ButtonBar>
+        <ComboBox fx:id="comboBox" layoutX="183.0" layoutY="168.0" prefWidth="150.0" />
+        <ListView fx:id="currentOrders" layoutX="158.0" layoutY="219.0" prefHeight="200.0" prefWidth="200.0" />
+    </children>
+</AnchorPane>

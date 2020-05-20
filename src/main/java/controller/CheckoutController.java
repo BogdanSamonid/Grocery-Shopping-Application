@@ -66,12 +66,12 @@ public class CheckoutController<prList> {
     }
 
     public void totalPrice(TableView<ShoppingCart> table, TextField total ){
-        float totalSavingValue=0;
+        float totalCart=0;
         for (ShoppingCart value : table.getItems()) {
-            totalSavingValue = totalSavingValue + Float.parseFloat(value.getPrice());
+            totalCart = totalCart + Float.parseFloat(value.getPrice());
         }
 
-        total.setText(String.valueOf(totalSavingValue) + " ron");
+        total.setText(String.valueOf(totalCart) + " ron");
         total.setAlignment(Pos.CENTER);
         total.setDisable(true);
 

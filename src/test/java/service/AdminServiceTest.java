@@ -23,17 +23,10 @@ public class AdminServiceTest {
         AdminService.checkUsernameIsNotEmpty("MOCK_USERNAME");
     }
 
-    /*@Test()
-    public void testPasswordEncode() {
-        String encoded = adminService.encodePassword(SALT, PW);
-
-        Assert.assertEquals(encoded, EXPECTED_ENCODED_PASSWORD);
-    }*/
-
     @Test
     public void testCheckAccount_exists() throws EmptyUsernameException, EmptyIDException, EmptyPasswordException, UsernameAlreadyExistsException, WrongUsernameException, WrongPasswordException, WrongIDException {
-        adminService.addAdmin("Alex", "123", "123");
+        adminService.addAdmin("Boogie", "123", "123");
 
-        adminService.checkAdmin("Alex", "123", "123");
+        adminService.checkAdmin("Boogie", "123", "123");
     }
 }

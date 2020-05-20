@@ -1,1 +1,13 @@
-[]
+{
+  "shopName" : "Lidl",
+  "productList" : [ {
+    "name" : "milk",
+    "price" : "3.5"
+  }, {
+    "name" : "apple",
+    "price" : "1"
+  }, {
+    "name" : "grepfrut",
+    "price" : "1"
+  } ]
+}
