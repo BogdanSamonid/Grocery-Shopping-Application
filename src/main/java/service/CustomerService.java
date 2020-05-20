@@ -21,7 +21,7 @@ public class CustomerService {
     public static void loadCustomersFromFile() { /*LOAD THE LIST WITH JSON(ADMIN) OBJECTS*/
         try {
             ObjectMapper mapper = new ObjectMapper();
-            InputStream inputStream = new FileInputStream(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/customer.json"));
+            InputStream inputStream = new FileInputStream(new File("C:/Users/Oana Tomuta/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/customer.json"));
             TypeReference<List<Customer>> typeReference = new TypeReference<List<Customer>>() {
             };
             customers = mapper.readValue(inputStream, typeReference);
@@ -44,7 +44,7 @@ public class CustomerService {
         customers.add(newCustomer);
         try {
             ObjectMapper mapper = new ObjectMapper();
-            File file=new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/customer.json");
+            File file=new File("C:/Users/Oana Tomuta/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/customer.json");
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, customers);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
