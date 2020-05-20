@@ -1,8 +1,6 @@
 package service;
 
 import exceptions.*;
-import model.Admin;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class AdminServiceTest {
@@ -23,7 +21,7 @@ public class AdminServiceTest {
         AdminService.checkUsernameIsNotEmpty("MOCK_USERNAME");
     }
 
-    @Test
+    @Test(expected = UsernameAlreadyExistsException.class)
     public void testCheckAccount_exists() throws EmptyUsernameException, EmptyIDException, EmptyPasswordException, UsernameAlreadyExistsException, WrongUsernameException, WrongPasswordException, WrongIDException {
         adminService.addAdmin("Boogie", "123", "123");
 

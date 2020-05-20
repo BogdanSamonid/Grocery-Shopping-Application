@@ -35,4 +35,8 @@ public class ShoppingCart {
     public void setPrice(String price) {
         this.price.set(price);
     }
+
+    public String toString() {
+        return name.toString() + "(" + price + ")";
+    }
 }

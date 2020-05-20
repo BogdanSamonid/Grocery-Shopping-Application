@@ -7,10 +7,7 @@ import exceptions.*;
 import model.Admin;
 
 import java.io.*;
-import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -24,7 +21,7 @@ public class AdminService {
     public void loadAdminsFromFile() { /*LOAD THE LIST WITH JSON(ADMIN) OBJECTS*/
         try {
             ObjectMapper mapper = new ObjectMapper();
-            InputStream inputStream = new FileInputStream(new File("C:/Users/Oana Tomuta/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json"));
+            InputStream inputStream = new FileInputStream(new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json"));
             TypeReference<List<Admin>> typeReference = new TypeReference<List<Admin>>() {
             };
             admins = mapper.readValue(inputStream, typeReference);
@@ -48,7 +45,7 @@ public class AdminService {
         admins.add(newAdmin);
         try {
             ObjectMapper mapper = new ObjectMapper();
-            File file=new File("C:/Users/Oana Tomuta/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json");
+            File file=new File("C:/Users/User/Documents/Grocery-Shopping-Application/src/main/resources/datastorage/admin.json");
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, admins);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
